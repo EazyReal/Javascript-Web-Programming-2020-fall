@@ -1,0 +1,82 @@
+/*
+use inline-box v.s. box to control
+but order cannot work
+best version is nav-grid
+*/
+
+/*semantic*/
+div#logo > img {
+    width : 40px;
+    height : 30px;
+}
+
+nav {
+    width: 100%; /*arranging*/
+    background-color: purple; /* rgb(140, 35, 200)*/
+    overflow: auto;
+}
+
+nav > ul {
+    background-color: inherit;
+    list-style: none;  
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: white; 
+    display: block; /*fill li with a*/
+    font-size: 1.2rem;
+    padding: 10px;
+    text-decoration: none; 
+}
+
+/*hover action*/
+nav a:hover {
+    background-color: #000;
+    color: white;
+}
+
+
+/*HANDLE ARRANGEMENT HERE*/
+nav > ul {
+    text-align: center;
+    display: inline-block;
+    order: 1;
+}
+nav > ul > li {
+    display: inline-block;
+}
+
+div#logo {
+    display: inline-block;
+    text-align: center;
+    order: 0;
+}
+
+div#form-search {
+    display: inline-block;
+    text-align: center;
+    order: 2;
+}
+/**/
+
+/*r3, unknown bug fixed by cut and paste*/
+@media only screen and (max-width: 500px)  {
+  nav > ul {
+    display: block;
+    order: 2;
+  }
+  nav > ul > li {
+    display: block;
+  }
+  div#logo {
+    display: inline-block;
+    order: 0;
+  }
+  div#form-search {
+    display: inline-block;
+    order: 1;
+  }
+}
+/**/

@@ -1,0 +1,86 @@
+/*
+ordinary:
+nav is flex with direction = row
+nav>ul is flex with direction = row
+
+max-width 500:
+nav is grid (2*2)
+nav>ul is flex with direction = column
+(grid area for items are in the code)
+*/
+
+
+/*F12 dibugging is useful*/
+
+/*semantic*/
+div#logo > img {
+    width : 40px;
+    height : 30px;
+}
+
+nav {
+    width: 100%; /*arranging*/
+    background-color: purple; /* rgb(140, 35, 200)*/
+    overflow: auto;
+}
+
+nav > ul {
+    background-color: inherit;
+    list-style: none;  
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav a {
+    color: white; 
+    display: block; /*fill li with a*/
+    font-size: 1.2rem;
+    padding: 10px;
+    text-decoration: none; 
+}
+
+/*hover action*/
+nav a:hover {
+    background-color: #000;
+    color: white;
+}
+
+
+/*HANDLE ARRANGEMENT HERE*/
+nav {
+    display: flex;
+    flex-direction: row;
+}
+
+nav > ul {
+    display: flex;
+    flex-direction: row;
+}
+/**/
+
+/*r3, grid layout for nav, inside grid-item ul, use flex layout*/
+@media only screen and (max-width: 500px)  {
+    nav {
+        display: grid;
+        grid-template-columns: auto, auto; /*info = logo+search */
+        grid-template-rows: auto, auto; /* info + ul*/
+    }
+    
+    nav > ul {
+        /* as a grid item*/
+        grid-area: 2/1/2/3;
+        /*as a flex container*/
+        display: flex;
+        flex-direction: column;
+    }
+
+    div#logo {
+        grid-area: 1/1/2/2;
+    }
+
+    div#form-search {
+        grid-area: 1/2/2/3;
+    }
+}
+/**/
