@@ -1,0 +1,75 @@
+/*in general we want text-align to be center*/
+*{
+  text-align: center;
+  vertical-align: center;
+}
+/*global remove list item header*/
+ul{
+  list-style: none;
+}
+
+/*select submit_button by id*/
+#submit_button{
+  grid-area: 4/2/5/3;
+}
+
+/*the level 1 wrapper for the whole window*/
+.wrap {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  /*grid-template-rows: repeat(4, auto);*/
+  font-family: "Roboto", "微軟正黑體";
+  background-color: turquoise;
+  padding: 10px;
+  border-radius: 10px;
+  grid-gap: 20px 10px;
+}
+
+/*game title*/
+.title {
+  grid-area: 1/1/2/4;
+  text-align: center;
+  color: black;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+/*card grid*/
+.card_wrapper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  color: black;
+  background-color:#80cbc4;
+  font-family: "Roboto", "微軟正黑體";
+  padding: 10px;
+  border-radius: 10px;
+  grid-gap: 5px 5px;
+}
+
+/*card title, special card item*/
+.card_title{
+  text-align: center;
+  grid-area: 1/1/2/6;
+  color : black;
+  /*padding: 10px;*/
+  border-radius: 10px;
+  background-color: wheat;
+}
+
+/*check box*/
+.checker{
+  text-align: center;
+  vertical-align: middle;
+  grid-area: 1/6/2/7;
+}
+
+/**each number is a general card item*/
+.card_item{
+  /*border-radius: 10px;*/
+  text-align: center;
+  color : black;
+  background-color: inherit;
+}
