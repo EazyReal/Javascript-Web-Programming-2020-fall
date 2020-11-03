@@ -9,15 +9,21 @@
 }
 */
 
-/* JS-1
+/* JS1, prototype style, commented to avoid redeclaration
 function Shape(name, sides, sideLength)
 {
     this.name = name;
     this.sides = sides;
     this.sideLength = sideLength;
 }
+
+Shape.prototype.calcPerimeter = function()
+{
+    console.log(this.name + "'s perimeter = " + this.sides*this.sideLength);
+}
 */
 
+//JS2, ES class syntax 
 class Shape
 {
     constructor(name, sides, sideLength)
@@ -32,6 +38,7 @@ class Shape
     }
 }
 
+//JS3, inheritance
 class Square extends Shape
 {
     constructor(sideLength)
@@ -42,13 +49,6 @@ class Square extends Shape
     {
         console.log(this.name + "'s area = " + this.sideLength**2);
     }
-}
-
-// Write your code below here
-
-Shape.prototype.calcPerimeter = function()
-{
-    console.log(this.name + "'s perimeter = " + this.sides*this.sideLength);
 }
 
 var square = new Shape("square", 4, 5);
