@@ -1,0 +1,72 @@
+/*HANDLE ARRANGEMENT HERE*/
+
+html, body { height: 100%; }
+
+/*top level*/
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/*in body*/
+header {
+    background-color: lightblue;
+    text-align: center;
+}
+
+/*nav in body*/
+
+/*wrapped in div profile*/
+img#profile_img {
+    width: 50%;
+}
+
+/*in body*/
+main{
+    flex: 1 0 auto;
+    display: inline-flex;
+    flex-direction: row;
+    background-color: aliceblue;
+}
+
+/*in main*/
+main>div#profile{
+    /*as part of main*/
+    flex: 0 1 auto;
+    background-color: aliceblue; 
+    /*arrange child picture*/
+    display: flex;
+    flex-direction: column;
+}
+
+/*in main*/
+main>article{
+    /*as part of main*/
+    flex: 0 1 auto;
+    /*as root of sections*/
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    justify-content: start;
+}
+
+header, nav, footer {
+    flex-shrink: 0;
+}
+
+footer{
+    margin-top: auto;
+    color: white;
+    background: black; /*lightcyan*/
+    text-align: center;
+}
+
+footer>a{
+    color: white; 
+    display: block; /*fill li with a*/
+    font-size: 1.2rem;
+    padding: 10px;
+    text-decoration: none; 
+}
+
+/*# sourceMappingURL=palette.ff0a5ce4.min.css.map*/

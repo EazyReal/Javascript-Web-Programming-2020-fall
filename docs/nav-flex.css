@@ -1,0 +1,95 @@
+/*
+ordinary:
+nav is flex with direction = row
+nav>ul is flex with direction = row
+
+max-width 480:
+nav is flex with direction = column
+nav>ul is flex with direction = column
+ordering is controled by order property
+
+but cannnot use direction in first two children of nav (pls let me know if there is a way)
+best version is nav-grid
+*/
+
+/*semantic*/
+div#logo > img {
+    width : 40px;
+    height : 30px;
+}
+
+nav {
+    width: 100%; /*arranging*/
+    background-color: purple; /* rgb(140, 35, 200)*/
+    overflow: auto;
+}
+
+nav > ul {
+    background-color: inherit;
+    list-style: none;  
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: white; 
+    display: block; /*fill li with a*/
+    font-size: 1.2rem;
+    padding: 10px;
+    text-decoration: none; 
+}
+
+/*hover action*/
+nav a:hover {
+    background-color: #000;
+    color: white;
+}
+
+
+/*HANDLE ARRANGEMENT HERE*/
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 100%;
+}
+
+nav > ul {
+    flex: 1 1 auto; /*this will make ul (the categories to stretch to be    the dominant part of nav)*/
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 100%;
+}
+
+/*
+nav > ul > li{
+    flex: 1 1 auto;
+    text-align: center;
+}
+*/
+
+/**/
+
+/*r3, unknown bug fixed by cut and paste*/
+@media only screen and (max-width: 500px)  {
+    nav {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    nav > ul {
+        display: flex;
+        flex-direction: column;
+        order: 2;
+    }
+
+    div#logo {
+        order: 0;
+    }
+
+    div#form-search {
+        order: 1;
+    }
+}
+/**/
