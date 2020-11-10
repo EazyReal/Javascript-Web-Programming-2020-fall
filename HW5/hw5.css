@@ -1,0 +1,11 @@
+@charset "utf-8";
+#container{
+    background-color: black;
+    position: relative;
+}
+
+.ball {
+    border-radius: 100%;
+    position: absolute; 
+    /*width, height and red in program*/
+}
