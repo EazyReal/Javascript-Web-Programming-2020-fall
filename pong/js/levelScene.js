@@ -54,9 +54,9 @@ export default class levelScene extends Phaser.Scene {
         this.particles = this.add.particles('ball');
 
         this.emitter = this.particles.createEmitter({
-            speed: 100,
+            speed: 50,
             scale: { start: 0.1, end: 0 },
-            lifespan: 500,
+            lifespan: 1500,
             blendMode: 'SCREEN'
         });
 

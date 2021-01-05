@@ -13,7 +13,6 @@ export default class AI {
 
     update(ball) {
         const paddle = this.paddle;
-
         // Super basic AI
         // when the ball is not in the middle waiting for the player to press space
         // the paddle will follow the ball once it's near the halfway point.
@@ -27,7 +26,11 @@ export default class AI {
                 }
             }
         } else {
-            paddle.y = screenHeight / 2;
+            if (paddle.y < screenHeight / 2) {
+                paddle.setVelocityY(screenHeight);
+            }else if (paddle.y > screenHeight / 2) {
+                paddle.setVelocityY(-screenHeight);
+            }
         }
     }
 }
