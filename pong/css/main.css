@@ -1,6 +1,6 @@
 @font-face {
     font-family: gameFont;
-    src: url('../fonts/bit5x3.ttf');
+    src: url('../fonts/FFF_Tusj.ttf');
     font-weight: normal;
 }
 
@@ -29,13 +29,12 @@ body {
 
 a {
     font-size: 2vw;
-    color: #0043ce;
+    color: white;
     text-decoration: none;
 }
 
 a:hover {
-    color: #0f62fe;
-    text-shadow: 0 0 4px #0f62fe;
+    color: blue;
 }
 
 p {
@@ -57,12 +56,12 @@ canvas {
 
 #scoreOne {
     position: absolute;
-    left: 45%;
+    left: 20%;
     font-size: 6vw;
 }
 
 #scoreTwo {
     position: absolute;
-    right: 45%;
+    right: 20%;
     font-size: 6vw;
 }

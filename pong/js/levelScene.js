@@ -13,11 +13,6 @@ export default class levelScene extends Phaser.Scene {
     preload() {
         this.load.image("ball", "assets/ball.png");
         this.load.image("paddle", "assets/paddle.png");
-
-        this.load.audio('left', ['sounds/left.wav']);
-        this.load.audio('right', ['sounds/right.wav']);
-        this.load.audio('wall', ['sounds/wall.wav']);
-        this.load.audio('goal', ['sounds/goal.wav']);
     }
 
     create() {
@@ -29,15 +24,9 @@ export default class levelScene extends Phaser.Scene {
         this.cam.flash();
 
         // add line down the middle
-        //let graphics = this.add.graphics({ lineStyle: {width: 2, color: 0xffffff} });
-        //let line = new Phaser.Geom.Line(screenWidth / 2, 0, screenWidth / 2, screenHeight);
-        //graphics.strokeLineShape(line);
-
-        // add sounds for ball when hitting walls or paddles
-        this.leftAudio = this.sound.add('left');
-        this.rightAudio = this.sound.add('right');
-        this.wallAudio = this.sound.add('wall');
-        this.goalAudio = this.sound.add('goal');
+        let graphics = this.add.graphics({ lineStyle: {width: 2, color: 0xffffff} });
+        let line = new Phaser.Geom.Line(screenWidth / 2, 0, screenWidth / 2, screenHeight);
+        graphics.strokeLineShape(line);
 
         // create inputs
         this.cursors = this.input.keyboard.createCursorKeys();
@@ -56,7 +45,7 @@ export default class levelScene extends Phaser.Scene {
         this.playerScore = 0;
         document.querySelector('#scoreOne').innerHTML = this.playerScore;
 
-        //create ai
+        //create ai/player2
         this.ai = new AI(this, screenWidth * 0.95, screenHeight / 2);
         this.aiScore = 0;
         document.querySelector('#scoreTwo').innerHTML = this.aiScore;
@@ -97,13 +86,6 @@ export default class levelScene extends Phaser.Scene {
             }
         }, this);
 
-        // if ball hits world bounds, play wall sound
-        this.physics.world.on('worldbounds', function(body) {
-            if (body.gameObject.type === 'ball') {
-                this.wallAudio.play();
-            }
-        }, this);
-
         this.physics.add.collider(this.ball, this.playerGroup, this.hitPaddle, null, this);
     }
 
@@ -129,12 +111,6 @@ export default class levelScene extends Phaser.Scene {
 
         let diff = 0;
 
-        if (paddle.type === 'Left') {
-            this.leftAudio.play();
-        } else if (paddle.type === 'Right') {
-            this.rightAudio.play();
-        }
-
         // above
         if (ball.y <= paddle.y) {
             // ball is on the left-hand side of the paddle
@@ -153,10 +129,7 @@ export default class levelScene extends Phaser.Scene {
     }
 
     resetBall() {
-        // goal!
-        this.goalAudio.play();
         this.cam.shake(100, 0.01);
-
         // set ball back to starting position
         this.ball.setActive(false);
         this.ball.setVelocity(0);

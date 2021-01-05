@@ -1,13 +1,13 @@
 import { screenWidth, screenHeight } from './game.js';
 
 export default class Player {
-    constructor(scene, x, y) {
+    constructor(scene, x, y, side="Left") {
         this.scene = scene;
 
         // Add sprite
         this.paddle = scene.playerGroup.create(x, y, "paddle").setScale(screenHeight / 1000).setOrigin(0.5, 0.5).setImmovable();
         this.paddle.setCollideWorldBounds(true);
-        this.paddle.type = 'Left';
+        this.paddle.type = side;
     }
 
     update() {
