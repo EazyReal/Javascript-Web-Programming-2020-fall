@@ -1,0 +1,67 @@
+@font-face {
+    font-family: gameFont;
+    src: url('../fonts/FFF_Tusj.ttf');
+    font-weight: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    background-color: #282828;
+    font-family: gameFont;
+    font-size: 2em;
+    color: rgb(255, 255, 255);
+    height: 100%;
+    display: grid;
+}
+
+#title {
+    font-family: gameFont;
+    font-size: 7vw;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    text-align: center;
+}
+
+a {
+    font-size: 2vw;
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: blue;
+}
+
+p {
+    display: block;
+    font-family: gameFont;
+    font-size: 2vw;
+    margin: auto;
+}
+
+canvas {
+    border: 0.5px solid;
+    border-color: rgba(255, 255, 255, 0.87);
+    border-radius: 1px;
+}
+
+#gameCanvas {
+    margin: auto;
+}
+
+#scoreOne {
+    position: absolute;
+    left: 20%;
+    font-size: 6vw;
+}
+
+#scoreTwo {
+    position: absolute;
+    right: 20%;
+    font-size: 6vw;
+}
