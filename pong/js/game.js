@@ -1,4 +1,4 @@
-import levelScene from "./levelScene.js";
+import PongScene from "./scene.js";
 
 export const screenWidth = 675;
 export const screenHeight = 375;
@@ -16,7 +16,7 @@ const config = {
             gravity: { x: 0, y: 0 }
         }
     },
-    scene: levelScene
+    scene: PongScene
 };
 
 const game = new Phaser.Game(config);

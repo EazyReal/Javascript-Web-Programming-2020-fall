@@ -13,11 +13,10 @@ export default class AI {
 
     update(ball) {
         const paddle = this.paddle;
-        // Super basic AI
-        // when the ball is not in the middle waiting for the player to press space
-        // the paddle will follow the ball once it's near the halfway point.
-        // when the ball is in the middle and waiting (after a point gain) then move the paddle back to the middle of the y axis
-        if (!ball.getData('inMiddle')) {
+        // simple AI
+        // the paddle will follow the ball once it's near the halfway point, and try to return to middle after that
+        if (!ball.getData('is_waiting')) {
+            // chase the ball
             if (ball.x > Phaser.Math.Between(screenWidth * 0.7, screenWidth * 0.9)) {
                 if (ball.y > paddle.y) {
                     paddle.setVelocityY(screenHeight);
@@ -25,12 +24,16 @@ export default class AI {
                     paddle.setVelocityY(-screenHeight);
                 }
             }
-        } else {
-            if (paddle.y < screenHeight / 2) {
-                paddle.setVelocityY(screenHeight);
-            }else if (paddle.y > screenHeight / 2) {
-                paddle.setVelocityY(-screenHeight);
+            // maintain in middle position
+            else {
+                if (paddle.y < screenHeight * 0.5) {
+                    paddle.setVelocityY(screenHeight*0.5);
+                }else if (paddle.y > screenHeight * 0.5) {
+                    paddle.setVelocityY(-screenHeight*0.5);
+                }
             }
+        }else{
+            paddle.y = screenHeight * 0.5;
         }
     }
 }
