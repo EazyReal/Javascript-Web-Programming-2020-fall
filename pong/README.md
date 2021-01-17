@@ -2,6 +2,9 @@
 
 Javascript Web Programming 2020 fall --- Final Report
 
+![](https://i.imgur.com/DDyxnz6.png)
+
+
 ## Information
 - Jan 17, 2021
 - 0712238, National Chiao Tung University, Yan-Tong Lin
@@ -350,3 +353,4 @@ update(time, delta) {
 - https://phaser.io/tutorials/making-your-first-phaser-3-game
 - https://stackoverflow.com/questions/10752055/cross-origin-requests-are-only-supported-for-http-error-when-loading-a-local
 - https://github.com/HuangJunye/qpong.js
+- https://hackmd.io/uO6bDs7LRU-BXqOkt_9WBQ
