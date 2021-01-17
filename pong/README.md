@@ -347,6 +347,13 @@ update(time, delta) {
 
 ---
 
+## My words
+- I considered a lot of different libraries before finalize on Phaser 3. The reason for choosing it is that it has a large community, is newer, and is free.
+- The loading of the ending of this semester is quite heavy for me, so intead of making an easy RTS game of my own, I did a simple Ping Pong game instead.
+- Game development is a very interesting thing to do (if one has free time), I will consider learn to make an RTS game on my own if I have spare time.
+
+---
+
 ## References
 - https://phaser.io/tutorials/getting-started-phaser3
 - https://photonstorm.github.io/phaser3-docs/
