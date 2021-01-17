@@ -47,15 +47,6 @@ export default class PongScene extends Phaser.Scene {
         this.score2 = 0;
         document.querySelector('#scoreTwo').innerHTML = this.score2;
 
-        //particles to follow the ball
-        this.particles = this.add.particles('ball');
-        this.emitter = this.particles.createEmitter({
-            speed: 50,
-            scale: { start: 0.1, end: 0 },
-            lifespan: 1000,
-            blendMode: 'SCREEN'
-        });
-
         // create the ball and describe its physics
         this.ball = this.ballGroup.create(0, 0, "ball").setOrigin(0.5, 0.5);
         this.resetBall(); // without this the ball starts in 0,0 and cause player 2 wins instantly
@@ -65,7 +56,14 @@ export default class PongScene extends Phaser.Scene {
         this.ball.body.onWorldBounds = true;
         this.ball.type = 'ball';
         this.ball.setData('is_waiting', true); // status of the ball
-        // particle emitter should follows ball
+        // particle emitter that follows ball
+        this.particles = this.add.particles('ball');
+        this.emitter = this.particles.createEmitter({
+            speed: 50,
+            scale: { start: 0.1, end: 0 },
+            lifespan: 1000,
+            blendMode: 'SCREEN'
+        });
         this.emitter.startFollow(this.ball);
 
         // space key to start a round
