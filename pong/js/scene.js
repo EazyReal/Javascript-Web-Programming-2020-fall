@@ -39,13 +39,13 @@ export default class PongScene extends Phaser.Scene {
 
         // create player
         this.player = new Player(this, screenWidth * 0.05, screenHeight / 2);
-        this.playerScore = 0;
-        document.querySelector('#scoreOne').innerHTML = this.playerScore;
+        this.score1 = 0;
+        document.querySelector('#scoreOne').innerHTML = this.score1;
 
         //create ai/player2
         this.ai = new AI(this, screenWidth * 0.95, screenHeight / 2);
-        this.aiScore = 0;
-        document.querySelector('#scoreTwo').innerHTML = this.aiScore;
+        this.score2 = 0;
+        document.querySelector('#scoreTwo').innerHTML = this.score2;
 
         //particles to follow the ball
         this.particles = this.add.particles('ball');
@@ -58,6 +58,7 @@ export default class PongScene extends Phaser.Scene {
 
         // create the ball and describe its physics
         this.ball = this.ballGroup.create(0, 0, "ball").setOrigin(0.5, 0.5);
+        this.resetBall(); // without this the ball starts in 0,0 and cause player 2 wins instantly
         this.ball.setScale(0.5, 0.5);
         this.ball.setMaxVelocity(screenWidth);
         this.ball.setMass(1);
@@ -82,6 +83,7 @@ export default class PongScene extends Phaser.Scene {
             }
         }, this);
 
+        //decide collide behavior
         this.physics.add.collider(this.ball, this.playerGroup, this.hitPaddle, null, this);
     }
 
@@ -89,16 +91,18 @@ export default class PongScene extends Phaser.Scene {
         this.player.update();
         this.ai.update(this.ball);
 
-        // if ball goes out on left side (player)
+        // if ball goes out on left side (ai wins)
         if (this.ball.x < screenWidth * 0.01) {
-            this.aiScore += 1;
-            document.querySelector('#scoreTwo').innerHTML = this.aiScore;
+            this.score2 += 1;
+            console.log("player 2 wins")
+            document.querySelector('#scoreTwo').innerHTML = this.score2;
             this.resetBall();
         }
-        // ball goes out on right side (ai)
+        // ball goes out on right side (player wins)
         if (this.ball.x > screenWidth * 0.99) {
-            this.playerScore += 1;
-            document.querySelector('#scoreOne').innerHTML = this.playerScore;
+            this.score1 += 1;
+            console.log("player 1 wins")
+            document.querySelector('#scoreOne').innerHTML = this.score1;
             this.resetBall();
         }
     }
